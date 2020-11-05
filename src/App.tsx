@@ -1,28 +1,30 @@
 import React, { useState } from "react";
 
 import MaterialButton from "./components/MaterialButton";
-interface data {
-  result: string;
-  value: number[];
-}
+import { key, value } from "./interfaces";
+
 const App = () => {
   const initialData: data = {
     result: "",
     value: [],
   };
   const [data, setData] = useState(initialData);
-  function AfterLoad() {
-    return data.value.forEach(function (num) {
+  const AfterLoad=
+     data.value.map( (num) =>{
       return <p key={num}>{num}</p>;
-    });
-  }
+    })
+   
+  
 
   return (
     <div className="App">
       {data.result === "" ? (
         <MaterialButton loadData={setData} />
       ) : (
-        <AfterLoad />
+        <div>
+      {AfterLoad}
+      <p>a</p>
+      </div>
       )}
     </div>
   );
