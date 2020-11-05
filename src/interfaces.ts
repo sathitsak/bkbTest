@@ -1,3 +1,7 @@
+export interface result {
+  key: string;
+  value: number[];
+}
 export interface value {
   result: string;
   value: number[];
@@ -9,5 +13,5 @@ export interface key {
 }
 
 export interface CalculateProps {
-  data: value;
+  data: result;
 }

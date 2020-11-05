@@ -17,17 +17,20 @@ const MaterialButton = ({ loadData }: any) => {
       {
         headers: {
           Authorization: `${apiKey}`,
-          key: "1604392473990",
           "Access-Control-Allow-Origin": "*",
         },
       }
     );
-
-    loadData(getValue.data);
+    const data={
+      key:apiKey,
+      value:getValue.data.value
+    }
+    console.log(data)
+    loadData(data);
   }
   return (
     <Button variant="contained" onClick={makeRequest}>
-      Default
+      Load
     </Button>
   );
 };

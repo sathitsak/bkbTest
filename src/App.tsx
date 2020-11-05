@@ -1,25 +1,17 @@
 import React, { useState } from "react";
-
-import MaterialButton from "./components/MaterialButton";
-import { value } from "./interfaces";
-import Calculate from './components/Calculate'
+import Home from "./pages/Home"
+import Result from "./pages/Result"
+import { Route, Switch } from "react-router-dom";
 const App = () => {
-  const initialData: value = {
-    result: "",
-    value: [],
-  };
-  const [data, setData] = useState(initialData);
-   
   
 
   return (
-    <div className="App">
-      {data.result === "" ? (
-        <MaterialButton loadData={setData} />
-      ) : (
-        <Calculate data={data}/>
-      )}
-    </div>
+    <main>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/result" component={Result} exact />
+      </Switch>
+    </main>
   );
 };
 
