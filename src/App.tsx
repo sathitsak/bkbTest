@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 
 import MaterialButton from "./components/MaterialButton";
-import { key, value } from "./interfaces";
-
+import { value } from "./interfaces";
+import Calculate from './components/Calculate'
 const App = () => {
-  const initialData: data = {
+  const initialData: value = {
     result: "",
     value: [],
   };
   const [data, setData] = useState(initialData);
-  const AfterLoad=
-     data.value.map( (num) =>{
-      return <p key={num}>{num}</p>;
-    })
    
   
 
@@ -21,10 +17,7 @@ const App = () => {
       {data.result === "" ? (
         <MaterialButton loadData={setData} />
       ) : (
-        <div>
-      {AfterLoad}
-      <p>a</p>
-      </div>
+        <Calculate data={data}/>
       )}
     </div>
   );

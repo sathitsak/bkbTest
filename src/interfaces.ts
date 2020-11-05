@@ -7,3 +7,7 @@ export interface key {
   result: string;
   key: string;
 }
+
+export interface CalculateProps {
+  data: value;
+}
