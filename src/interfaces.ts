@@ -15,3 +15,7 @@ export interface key {
 export interface CalculateProps {
   data: result;
 }
+
+export interface MaterialButtonProps {
+  loadData: React.Dispatch<React.SetStateAction<result>>;
+}

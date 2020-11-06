@@ -1,14 +1,11 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
-import { key, value } from "../interfaces";
-const MaterialButton = ({ loadData }: any) => {
+import { key, value,MaterialButtonProps } from "../interfaces";
+const MaterialButton = ({ loadData }: MaterialButtonProps) => {
   async function makeRequest() {
     const getKey = await axios.get<key>(
-      "https://asia-east2-candidateplayground.cloudfunctions.net/key",
-      {
-        headers: { "Access-Control-Allow-Origin": "*" },
-      }
+      "https://asia-east2-candidateplayground.cloudfunctions.net/key"
     );
     let apiKey = getKey.data.key;
 
@@ -16,8 +13,7 @@ const MaterialButton = ({ loadData }: any) => {
       "https://asia-east2-candidateplayground.cloudfunctions.net/value",
       {
         headers: {
-          Authorization: `${apiKey}`,
-          "Access-Control-Allow-Origin": "*",
+          Authorization: `${apiKey}`          
         },
       }
     );
